@@ -36,6 +36,9 @@ import org.spout.api.event.player.PlayerInteractEvent.Action;
  * Represents an attachment to a entity that can respond to Ticks.
  */
 public abstract class EntityComponent extends Component {
+	
+	private spawned = false;
+	
 	@Override
 	public Entity getHolder() {
 		return (Entity) super.getHolder();
@@ -54,6 +57,11 @@ public abstract class EntityComponent extends Component {
 	 * Called when the parent entity is spawned into the world.
 	 */
 	public void onSpawned() {
+		spawned = true;
+	}
+
+	public boolean isSpawned() {
+		return spawned;
 	}
 
 	/**
