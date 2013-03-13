@@ -60,7 +60,7 @@ public class PermissionGetAllWithNodeEvent extends NodeBasedEvent {
 	public Set<PermissionsSubject> getAllowedReceivers() {
 		Set<PermissionsSubject> ret = new HashSet<PermissionsSubject>();
 		for (Map.Entry<PermissionsSubject, Result> entry : receivers.entrySet()) {
-			if (entry.getValue() == Result.ALLOW) {
+			if (entry.getValue() == Result.ALLOW || entry.getValue() == Result.DEFAULT) {
 				ret.add(entry.getKey());
 			}
 		}
